@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { useAuthStore } from "@/store/authStore";
-import { useRouter } from "next/navigation";
-import styles from "./AppHeader.module.scss";
+import { Button } from 'antd'
+import { useAuthStore } from '@/store/authStore'
+import { useRouter } from 'next/navigation'
+import * as styles from './AppHeader.module.scss'
 
 export default function AppHeader() {
-  const { isAuthenticated, logout } = useAuthStore();
-  const router = useRouter();
+  const { isAuthenticated, logout } = useAuthStore()
+  const router = useRouter()
 
   const handleLogout = () => {
-    logout();
-    localStorage.removeItem("token"); // Удаляем токен
-    router.push("/auth/login"); // Перенаправляем на страницу логина
-  };
+    logout()
+    router.push('/auth')
+  }
 
   return (
     <header className={styles.header}>
@@ -20,11 +20,11 @@ export default function AppHeader() {
         <h1>Task Manager</h1>
 
         {isAuthenticated ? (
-          <button onClick={handleLogout}>Logout</button>
+          <Button onClick={handleLogout}>Выйти</Button>
         ) : (
-          <button onClick={() => router.push("/auth/login")}>Login</button>
+          <Button onClick={() => router.push('/auth/login')}>Войти</Button>
         )}
       </nav>
     </header>
-  );
+  )
 }

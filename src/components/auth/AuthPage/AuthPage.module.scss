@@ -1,0 +1,10 @@
+@import '@/styles/globals';
+
+.container {
+  @include flex-center;
+  margin-top: 24px;
+}
+
+.title {
+  margin-bottom: 16px;
+}

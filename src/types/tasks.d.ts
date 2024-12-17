@@ -1,5 +1,13 @@
 export interface TaskData {
-  id: number;
-  title: string;
-  description: string;
+  deadline: string | null
+  description: string
+  id: number
+  status: string
+  title: string
+  userId: number
+}
+
+export interface TaskPayload {
+  title: string
+  description: string
 }
