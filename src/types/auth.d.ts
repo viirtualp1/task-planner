@@ -1,4 +1,4 @@
 export interface AuthPayload {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }

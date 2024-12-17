@@ -1,16 +1,16 @@
 export function get<T>(
   obj: Record<string, T>,
   path: string | string[],
-  defValue?: string
+  defValue?: string,
 ) {
-  if (!path) return undefined;
+  if (!path) return undefined
 
-  const pathArray = Array.isArray(path) ? path : path.match(/([^[.\]])+/g);
+  const pathArray = Array.isArray(path) ? path : path.match(/([^[.\]])+/g)
   const result = pathArray?.reduce(
     // @ts-ignore
     (prevObj, key) => prevObj && prevObj[key],
-    obj
-  );
+    obj,
+  )
 
-  return result === undefined ? defValue : result;
+  return result === undefined ? defValue : result
 }
